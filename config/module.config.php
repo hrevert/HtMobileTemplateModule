@@ -12,7 +12,7 @@ return [
         'resolvers_plugin_manager' => [
             'factories' => [
                 'media_map' => 'HtMobileTemplateModule\View\Resolver\Factory\MapFactory',
-                'media_path_stack' => 'HtMobileTemplateModule\View\Resolver\Factory\PathStackResolverFactory',
+                'media_path_stack' => 'HtMobileTemplateModule\View\Resolver\Factory\PathStackFactory',
             ]
         ],
         'resolvers' => [

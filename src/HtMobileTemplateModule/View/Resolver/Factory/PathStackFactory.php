@@ -5,7 +5,7 @@ use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\View\Resolver\TemplatePathStack;
 
-class PathStackResolverFactory implements FactoryInterface
+class PathStackFactory implements FactoryInterface
 {
     public function createService(ServiceLocatorInterface $resolvers)
     {
