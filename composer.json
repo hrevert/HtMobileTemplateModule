@@ -23,7 +23,8 @@
         "zendframework/zend-modulemanager": "~2.1",
         "zendframework/zend-servicemanager": "~2.1",
         "zendframework/zend-mvc": "~2.1",
-        "hrevert/ht-template-resolver-module": "dev-master"
+        "hrevert/ht-template-resolver-module": "dev-master",
+        "neilime/zf2-mobile-detect": "1.0"
     },
     "autoload": {
         "psr-0": {
