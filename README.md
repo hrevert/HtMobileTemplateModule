@@ -11,7 +11,7 @@ A Zend Framework 2 module to based on [Mobile-Detect](https://github.com/serbang
  
 
 # Installation
-* Add `"hrevert/ht-mobile-template-module": "dev-master",` to your composer.json and run `php composer.phar update`
+* Add `"hrevert/ht-mobile-template-module": "0.0.*",` to your composer.json and run `php composer.phar update`
 * Enable the module in `config/application.config.php`
 
 ## Basic Usage
