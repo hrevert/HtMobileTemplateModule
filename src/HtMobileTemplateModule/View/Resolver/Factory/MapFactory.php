@@ -1,29 +1,34 @@
 <?php
 namespace HtMobileTemplateModule\View\Resolver\Factory;
 
-use Zend\ServiceManager\FactoryInterface;
+use Zend\View\Resolver;
 use Zend\ServiceManager\ServiceLocatorInterface;
-use Zend\View\Resolver\TemplateMapResolver;
 
-class MapFactory implements FactoryInterface
+class MapFactory extends AbstractFactory
 {
-    public function createService(ServiceLocatorInterface $resolvers)
+    /**
+     * {@inheritDoc}
+     */  
+    protected function getConfig(ServiceLocatorInterface $serviceLocator)
     {
-        $config = $resolvers->getServiceLocator()->get('Config')['ht_mobile_template']['map'];
-        $mobileDetect = $this->getServiceLocator()->get('MobileDetect');
+        return $serviceLocator->get('Config')['ht_mobile_template']['map'];
+    }
 
-        $mapResolver = new TemplateMapResolver;
-        $match = false;
-        foreach ($config as $media => $maps) {
-            if ($mobileDetect->is($media)) {
-                $match = true;
-                $mapResolver->merge($maps);
-            }
-        }
-        if (!$match && isset($config['default'])) {
-            $resolver->merge($config['default']);
-        }
+    /**
+     * Initiates new template path stack resolver
+     *
+     * @return Resolver\TemplateMapResolver
+     */ 
+    protected function getResolver()
+    {
+        return new Resolver\TemplateMapResolver;
+    }
 
-        return $mapResolver;
+    /**
+     * {@inheritDoc}
+     */    
+    protected function configure(Resolver\ResolverInterface $resolver, $maps)
+    {
+        $resolver->merge($maps);
     }
 }

@@ -1,30 +1,34 @@
 <?php
 namespace HtMobileTemplateModule\View\Resolver\Factory;
 
-use Zend\ServiceManager\FactoryInterface;
+use Zend\View\Resolver;
 use Zend\ServiceManager\ServiceLocatorInterface;
-use Zend\View\Resolver\TemplatePathStack;
 
-class PathStackFactory implements FactoryInterface
+class PathStackFactory extends AbstractFactory
 {
-    public function createService(ServiceLocatorInterface $resolvers)
+    /**
+     * {@inheritDoc}
+     */  
+    protected function getConfig(ServiceLocatorInterface $serviceLocator)
     {
-        $config = $resolvers->getServiceLocator()->get('Config')['ht_mobile_template']['path_stack'];
-        $mobileDetect = $this->getServiceLocator()->get('MobileDetect');
+        return $serviceLocator->get('Config')['ht_mobile_template']['path_stack'];
+    }
 
-        $resolver = new TemplatePathStack;
-        $match = false;
-        foreach ($config as $media => $pathStacks) {
-            if ($mobileDetect->is($media)) {
-                $match = true;
-                $resolver->addPaths($pathStacks);
-            }
-        }
+    /**
+     * Initiates new template path stack resolver
+     *
+     * @return Resolver\TemplatePathStack
+     */ 
+    protected function getResolver()
+    {
+        return new Resolver\TemplatePathStack;
+    }
 
-        if (!$match && isset($config['default'])) {
-            $resolver->addPaths($config['default']);
-        }
-
-        return $resolver;
+    /**
+     * {@inheritDoc}
+     */    
+    protected function configure(Resolver\ResolverInterface $resolver, $pathStacks)
+    {
+        $resolver->addPaths($pathStacks);
     }
 }
