@@ -13,11 +13,8 @@ abstract class AbstractFactory implements FactoryInterface
      * @param  ServiceLocatorInterface $resolvers
      * @return ResolverInterface
      */
-    public function createService(ServiceLocatorInterface $resolvers)
+    public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        /** @var ServiceLocatorInterface  */
-        $serviceLocator = $resolvers->getServiceLocator();
-
         $config = $this->getConfig($serviceLocator);
 
         /** @var \Mobile_Detect */

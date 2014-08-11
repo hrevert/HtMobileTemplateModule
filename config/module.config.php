@@ -8,16 +8,15 @@ return [
 
         ]
     ],
-    'ht_template_resolver' => [
-        'resolvers_plugin_manager' => [
-            'factories' => [
-                'media_map' => 'HtMobileTemplateModule\View\Resolver\Factory\MapFactory',
-                'media_path_stack' => 'HtMobileTemplateModule\View\Resolver\Factory\PathStackFactory',
-            ]
+    'service_manager' => [
+        'factories' => [
+            'HtMobileTemplateModule\View\Resolver\Map' => 'HtMobileTemplateModule\View\Resolver\Factory\MapFactory',
+            'HtMobileTemplateModule\View\Resolver\PathStack' => 'HtMobileTemplateModule\View\Resolver\Factory\PathStackFactory',
         ],
-        'resolvers' => [
-            'media_map' => 4000,
-            'media_path_stack' => 2000
-        ]
+        'delegators' => [
+            'ViewResolver' => [
+                'HtMobileTemplateModule\View\Resolver\Factory\ViewResolverDelegatorFactory',
+            ],
+        ],
     ]
 ];

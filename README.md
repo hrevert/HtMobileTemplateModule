@@ -7,7 +7,6 @@ A Zend Framework 2 module to based on [Mobile-Detect](https://github.com/serbang
 1. [Zend Framework 2](https://github.com/zendframework/zf2)
 2. [Mobile-Detect](https://github.com/serbanghita/Mobile-Detect)
 3. [zf2-mobile-detect](https://github.com/neilime/zf2-mobile-detect)
-4. [HtTemplateResolverModule](https://github.com/hrevert/HtTemplateResolverModule)
  
 
 # Installation
