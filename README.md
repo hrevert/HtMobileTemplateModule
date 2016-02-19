@@ -1,7 +1,7 @@
 HtMobileTemplateModule
 ======================
 
-A Zend Framework 2 module to based on [Mobile-Detect](https://github.com/serbanghita/Mobile-Detect) library to easily use different templates for mobiles, tablets etc.
+A Zend Framework 2 module based on [Mobile-Detect](https://github.com/serbanghita/Mobile-Detect) library to easily use different templates for mobiles, tablets etc.
 
 # Requirements
 1. [Zend Framework 2](https://github.com/zendframework/zf2)
